@@ -1,0 +1,10 @@
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* Footer transparent */
+#footer,
+#footer-wrap,
+.footer,
+.footer-wrap,
+.footer-bg,
+#footer .footer-bg {
+  background: transparent !important;
+  background-color: transparent !important;
+}
