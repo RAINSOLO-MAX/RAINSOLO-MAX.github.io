@@ -1,24 +1,180 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>说说 | RAINSOLO's Blog</title><meta name="author" content="RAINSOLO"><meta name="copyright" content="RAINSOLO"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>说说 | Rain's Blog</title><meta name="author" content="Rain"><meta name="copyright" content="Rain"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="var meting_api&#x3D;&#39;https:&#x2F;&#x2F;api.injahow.cn&#x2F;meting&#x2F;?server&#x3D;:server&amp;type&#x3D;:type&amp;id&#x3D;:id&amp;r&#x3D;:r&#39;">
+<meta property="og:type" content="website">
 <meta property="og:title" content="说说">
 <meta property="og:url" content="https://rainsolo-max.github.io/shuoshuo/">
-<meta property="og:site_name" content="RAINSOLO&#39;s Blog">
+<meta property="og:site_name" content="Rain&#39;s Blog">
+<meta property="og:description" content="var meting_api&#x3D;&#39;https:&#x2F;&#x2F;api.injahow.cn&#x2F;meting&#x2F;?server&#x3D;:server&amp;type&#x3D;:type&amp;id&#x3D;:id&amp;r&#x3D;:r&#39;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://rainsolo-max.github.io/img/cover2.jpg">
+<meta property="og:image" content="https://rainsolo-max.github.io/img/avatar.jpg">
 <meta property="article:published_time" content="2026-03-31T08:11:29.000Z">
 <meta property="article:modified_time" content="2026-03-31T08:12:25.801Z">
-<meta property="article:author" content="RAINSOLO">
-<meta property="article:tag" content="博客,技术,编程,前端,后端,Hexo,分享">
+<meta property="article:author" content="Rain">
+<meta property="article:tag" content="个人博客,生活记录,成长随笔,技术分享,编程,Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://rainsolo-max.github.io/img/cover2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://rainsolo-max.github.io/shuoshuo/"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.3.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.31/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://rainsolo-max.github.io/img/avatar.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://rainsolo-max.github.io/shuoshuo/"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const start = 6
+              const end = 18
+              const isNight =
+                start < end
+                    ? hour < start || hour >= end
+                    : hour >= start || hour < end
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":true},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -26,7 +182,7 @@
     post: false
   },
   runtime: '天',
-  date_suffix: {
+  dateSuffix: {
     just: '刚刚',
     min: '分钟前',
     hour: '小时前',
@@ -35,249 +191,530 @@
   },
   copyright: undefined,
   lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1.2/dist/fjGallery.min.css'
-    }
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
-  islazyload: true,
+  islazyloadPlugin: true,
   isAnchor: false,
   percent: {
     toc: true,
     rightside: false,
-  }
+  },
+  autoDarkmode: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '说说',
-  isPost: false,
-  isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-03-31 16:12:25'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><style>html:root{--be-native-bg:#ececec}#footer{background:var(--be-native-bg,#1a1a1a)!important;background-color:transparent!important;opacity:1!important}#footer::before{display:none!important}#footer::after{display:none!important}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
-  endLoading: () => {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loading-box').classList.add("loaded")
-  },
-  initLoading: () => {
-    document.body.style.overflow = '';
-    document.getElementById('loading-box').classList.remove("loaded")
-
-  }
+  pageType: 'shuoshuo'
+}</script><style>#footer{background:transparent!important}#footer,#footer a{color:var(--font-color)!important}</style><style>body > span[style*="z-index: 150"]{-webkit-user-select:none;-moz-user-select:none;user-select:none;pointer-events:none}</style><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
 }
-window.addEventListener('load',()=> { preloader.endLoading() })
 
-if (true) {
-  document.addEventListener('pjax:send', () => { preloader.initLoading() })
-  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url('/img/default_bg.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="RAINSOLO's Blog"><span class="site-name">RAINSOLO's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">说说</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info__name">RAINSOLO</div><div class="author-info__description">热爱编程，热爱生活</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RAINSOLO-MAX"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/RAINSOLO-MAX" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！这里是记录生活和技术分享的地方。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/%E4%BA%8C%E5%88%86%E4%B8%8E%E5%B7%AE%E5%88%86" title="一刀两半，一查到底：二分与差分的艺术"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一刀两半，一查到底：二分与差分的艺术"></a><div class="content"><a class="title" href="/posts/%E4%BA%8C%E5%88%86%E4%B8%8E%E5%B7%AE%E5%88%86" title="一刀两半，一查到底：二分与差分的艺术">一刀两半，一查到底：二分与差分的艺术</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C" title="当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密"></a><div class="content"><a class="title" href="/posts/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C" title="当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密">当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3" title="从O(n)到O(1)的魔法：前缀和算法揭秘"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从O(n)到O(1)的魔法：前缀和算法揭秘"></a><div class="content"><a class="title" href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3" title="从O(n)到O(1)的魔法：前缀和算法揭秘">从O(n)到O(1)的魔法：前缀和算法揭秘</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" title="双指针算法：从O(n²)到O(n)的优雅蜕变"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="双指针算法：从O(n²)到O(n)的优雅蜕变"></a><div class="content"><a class="title" href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" title="双指针算法：从O(n²)到O(n)的优雅蜕变">双指针算法：从O(n²)到O(n)的优雅蜕变</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3" title="差分：两行代码把 O(n) 变成 O(1)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="差分：两行代码把 O(n) 变成 O(1)"></a><div class="content"><a class="title" href="/posts/%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3" title="差分：两行代码把 O(n) 变成 O(1)">差分：两行代码把 O(n) 变成 O(1)</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css"><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="bg-animation" id="web_bg" style="background-image: url(/img/bg.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/guestbook/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div></div></div><div class="page type-shuoshuo" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/default_bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Rain's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/guestbook/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">说说</h1></div></header><main class="layout" id="content-inner"><div class="nc" id="page"><div id="article-container"><script>(() => {
+  const commentDiv = `<hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div>`
+
+  const runDestroy = (shuoshuoComment) => {
+    if (!shuoshuoComment) return
+
+    for (const [key, fn] of Object.entries(shuoshuoComment)) {
+      if (key.startsWith('destroy')) fn()
+    }
+  }
+
+  window.addCommentToShuoshuo = e => {
+    const btn = e.target.closest('.shuoshuo-comment-btn')
+    if (!btn) return
+
+    const ele = btn.closest('.container').nextElementSibling
+    const { shuoshuoComment } = window
+    const isInclude = ele.classList.contains('no-comment')
+    runDestroy(shuoshuoComment)
+    if (isInclude) {
+      ele.classList.remove('no-comment')
+      ele.innerHTML = commentDiv
+      const key = `${location.pathname.replace(/\/$/, '')}?key=${ele.getAttribute('data-key')}`
+      btf.switchComments(ele, key)
+      shuoshuoComment.loadComment && shuoshuoComment.loadComment(ele, key)
+    }
+  }
+})()
+
+</script><script type="application/json" id="shuoshuo-data">[{"author":"Rain","avatar":"/img/avatar.jpg","date":"2026-08-18 22:41:00","key":"key-1","content":"\u003cp\u003e当初挑这个鸭子头像，是因为它\u003cstrong\u003e扑腾水面的样子\u003c/strong\u003e，和我写 bug 时的状态一模一样。\u003c/p\u003e\n","tags":["日常","头像"]},{"author":"Rain","avatar":"/img/avatar.jpg","date":"2026-08-15 23:58:00","key":"key-2","content":"\u003cp\u003e凌晨两点还在跟快速排序搏斗，室友路过问我在修仙吗。\n我说不，我在\u003cstrong\u003e分治\u003c/strong\u003e。\u003c/p\u003e\n","tags":["算法","夜猫子"]},{"author":"Rain","avatar":"/img/avatar.jpg","date":"2026-08-10 20:15:00","key":"key-3","content":"\u003cp\u003e今天终于悟了前缀和——原来我小时候存零花钱就是这思想：\n每次都只记「一共攒了多少」，从来不记每笔是几块。\n早知道当初给老师讲这个，她可能就不让我罚站了。\u003c/p\u003e\n","tags":["算法","童年"]},{"author":"Rain","avatar":"/img/avatar.jpg","date":"2026-08-05 12:30:00","key":"key-4","content":"\u003cp\u003e周末逛超市，收银台排长队，脑子里的职业病又犯了：\n这妥妥是 O(n) 的遍历，要是能维护一个\u003cstrong\u003e前缀和\u003c/strong\u003e，我结账是不是就能 O(1) 了……\n然后我被后面的大爷用眼神教育了。\u003c/p\u003e\n","tags":["日常","职业病"]},{"author":"Rain","avatar":"/img/avatar.jpg","date":"2026-07-28 09:12:00","key":"key-5","content":"\u003cp\u003e给博客写了自动签到脚本，它运行得过于优秀——\n刚才差点连\u003cstrong\u003e我的上班打卡\u003c/strong\u003e都想替我打了。冷静，兄弟，那一步我自己来。\u003c/p\u003e\n","tags":["代码","生活"]}]</script><script>(() => {
+  const limitConfig = {}
+
+  const escapeHtml = str => String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+
+  const sortDataByDate = data => data.sort((a, b) => new Date(b.date) - new Date(a.date))
+
+  const filterDataByLimit = (data, limit) => {
+    if (!limit || !limit.type) return data
+    if (limit.type === 'num') return data.slice(0, limit.value)
+    if (limit.type === 'date') {
+      const limitDate = new Date(limit.value)
+      return data.filter(item => new Date(item.date) >= limitDate)
+    }
+    return data
+  }
+
+  const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: "Asia/Shanghai" || Intl.DateTimeFormat().resolvedOptions().timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  })
+
+  const formatToTimeZone = (date) => {
+    const fullDate = date.length === 10 ? `${date} 00:00:00` : date
+    const [day, month, year, hour, minute, second] = dateFormatter.format(new Date(fullDate)).match(/\d+/g)
+    return `${year}-${month}-${day} ${hour}:${minute}:${second}`
+  }
+
+  const addLazyload = str => {
+    const lazyConfig = {
+      enable: true,
+      native: false,
+      field: "site",
+      placeholder: "/null",
+    }
+
+    if (!lazyConfig.enable || lazyConfig.field !== 'site' || str.indexOf('<img') === -1) return str
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(str, 'text/html')
+    const images = doc.querySelectorAll('img')
+
+    images.forEach(img => {
+      if (lazyConfig.native) {
+        img.setAttribute('loading', 'lazy')
+      } else {
+        const src = img.getAttribute('src')
+        img.setAttribute('data-lazy-src', src)
+
+        if (lazyConfig.placeholder) {
+          img.setAttribute('src', lazyConfig.placeholder)
+        } else {
+          img.removeAttribute('src')
+        }
+      }
+    })
+    return doc.body.innerHTML
+  }
+
+  let currentPage = 1
+  const itemsPerPage = 8
+  let totalPages = 0
+  let data = []
+
+  const renderData = (dataSlice) => {
+    const content = dataSlice.map(item => {
+      const formattedDate = formatToTimeZone(item.date)
+      const tags = item.tags && item.tags.map(tag => `<span class="shuoshuo-tag">${escapeHtml(tag)}</span>`).join('') || ''
+      const commentButton = item.key && true
+        ? `<div class="shuoshuo-comment-btn" onclick="addCommentToShuoshuo(event)">
+            <i class="fa-solid fa-comments"></i>
+          </div>`
+        : ''
+      const commentContainer = item.key
+        ? `<div class="shuoshuo-comment no-comment" data-key="${escapeHtml(item.key)}"></div>`
+        : ''
+
+      return `
+        <div class="shuoshuo-item">
+          <div class="container">
+            <div class="shuoshuo-item-header">
+              <div class="shuoshuo-avatar">
+                <img class="no-lightbox" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="${item.avatar ? escapeHtml(item.avatar) : "/img/avatar.jpg"}">
+              </div>
+              <div class="shuoshuo-info">
+                <div class="shuoshuo-author">${item.author ? escapeHtml(item.author) : "Rain"}</div>
+                <time class="shuoshuo-date" title="${formattedDate}">
+                  ${btf.diffDate(formattedDate, true)}
+                </time>
+              </div>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
+            <div class="shuoshuo-content">${addLazyload(item.content)}</div>
+            <div class="shuoshuo-footer ${tags ? 'flex-between' : 'flex-end'}">
+              ${tags ? `<div class="shuoshuo-tags">${tags}</div>` : ''}
+              ${commentButton}
+            </div>
+          </div>
+          ${commentContainer}
+        </div>`
+    }).join('')
+
+    const container = document.getElementById('article-container')
+    container.innerHTML = content
+
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    document.dispatchEvent(new Event('shuoshuo:rendered'))
+  }
+
+  const setupNavEvents = (nav) => {
+    nav.querySelector('.shuoshuo-prev-btn').addEventListener('click', () => {
+      if (currentPage > 1) { currentPage--; renderPage(currentPage) }
+    })
+    nav.querySelector('.shuoshuo-next-btn').addEventListener('click', () => {
+      if (currentPage < totalPages) { currentPage++; renderPage(currentPage) }
+    })
+
+    const input = nav.querySelector('.shuoshuo-page-input')
+
+    input.addEventListener('focus', e => { e.target.placeholder = '' })
+    input.addEventListener('blur', e => {
+      if (!e.target.value.trim()) e.target.placeholder = currentPage
+    })
+
+    input.addEventListener('input', e => {
+      const value = parseInt(e.target.value) || 0
+      let wasInvalid = false
+
+      if (value > totalPages) { e.target.value = totalPages; wasInvalid = true }
+      else if (value < 1 && e.target.value !== '') { e.target.value = 1; wasInvalid = true }
+
+      if (wasInvalid) {
+        e.target.classList.add('invalid')
+        setTimeout(() => e.target.classList.remove('invalid'), 500)
+      }
+    })
+
+    input.addEventListener('keydown', e => {
+      const value = e.target.value + e.key
+
+      if (e.key === 'Enter' || e.key === 'Backspace' || e.key === 'Delete' ||
+          e.key === 'ArrowLeft' || e.key === 'ArrowRight' ||
+          e.key === 'Tab' || e.ctrlKey || e.metaKey) {
+        if (e.key === 'Enter') {
+          const inputValue = e.target.value.trim()
+          const inputPage = inputValue === '' ? currentPage : parseInt(inputValue)
+          if (inputPage >= 1 && inputPage <= totalPages && inputPage !== currentPage) {
+            currentPage = inputPage
+            renderPage(currentPage)
+          } else if (inputValue === '') {
+            renderPage(currentPage)
+          }
+        }
+        return
+      }
+
+      if (!/^\d$/.test(e.key)) {
+        e.preventDefault()
+        return
+      }
+
+      const newValue = parseInt(value) || 0
+      if (newValue > totalPages || (value.length > 1 && newValue === 0)) {
+        e.preventDefault()
+        e.target.classList.add('invalid')
+        setTimeout(() => e.target.classList.remove('invalid'), 500)
+      }
+    })
+  }
+
+  const renderNavigation = () => {
+    const container = document.getElementById('article-container')
+    let nav = container.nextElementSibling
+    const pageInfoTemplate = '第 ${current} 页 / 共 ${total} 页'
+    const pageInfoText = pageInfoTemplate
+      .replace(/\$\{current}/g, currentPage)
+      .replace(/\$\{total}/g, totalPages)
+
+    if (!nav || !nav.classList.contains('shuoshuo-navigation')) {
+      nav = document.createElement('div')
+      nav.className = 'shuoshuo-navigation'
+      nav.innerHTML = `
+        <button class="shuoshuo-prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <span class="shuoshuo-page-info"></span>
+        <input type="number" class="shuoshuo-page-input" min="1">
+        <button class="shuoshuo-next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+      `
+      container.insertAdjacentElement('afterend', nav)
+      setupNavEvents(nav)
+    }
+
+    nav.querySelector('.shuoshuo-page-info').textContent = pageInfoText
+    nav.querySelector('.shuoshuo-prev-btn').disabled = currentPage === 1
+    nav.querySelector('.shuoshuo-next-btn').disabled = currentPage === totalPages
+    const input = nav.querySelector('.shuoshuo-page-input')
+    input.max = totalPages
+    input.placeholder = currentPage
+  }
+
+  const renderPage = (page) => {
+    const start = (page - 1) * itemsPerPage
+    const end = start + itemsPerPage
+    const pageData = data.slice(start, end)
+    renderData(pageData)
+    renderNavigation()
+  }
+
+  const loadShuoshuo = async () => {
+    const container = document.getElementById('article-container')
+    try {
+      let originData = []
+      if (false) {
+        container.innerHTML = '<div class="shuoshuo-loading"><i class="fa-solid fa-circle-notch fa-spin"></i></div>'
+        const response = await fetch('/')
+        if (!response.ok) throw new Error(`HTTP ${response.status}`)
+        originData = await response.json()
+      } else {
+        const dataElement = document.getElementById('shuoshuo-data')
+        originData = dataElement ? JSON.parse(dataElement.textContent) : []
+      }
+
+      data = filterDataByLimit(sortDataByDate(originData), limitConfig)
+      totalPages = Math.ceil(data.length / itemsPerPage)
+
+      if (data.length === 0) {
+        container.innerHTML = '<div class="shuoshuo-empty"></div>'
+        return
+      }
+
+      renderPage(currentPage)
+    } catch (error) {
+      console.error(error)
+      container.innerHTML = '<div class="shuoshuo-error"><i class="fa-solid fa-circle-exclamation"></i></div>'
+    }
+  }
+
+  const pjaxCleanup = () => {
+    const container = document.getElementById('article-container')
+    if (container) {
+      const nav = container.nextElementSibling
+      if (nav && nav.classList.contains('shuoshuo-navigation')) nav.remove()
+    }
+    document.removeEventListener('pjax:send', pjaxCleanup)
+  }
+
+  if (window.pjax) {
+    document.addEventListener('pjax:send', pjaxCleanup)
+    loadShuoshuo()
+  } else {
+    window.addEventListener('load', loadShuoshuo)
+  }
+})()</script></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"></div><div class="author-info-name">Rain</div><div class="author-info-description">山高路远，看世界，也找自己</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/RAINSOLO-MAX"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:rainsolomax@gmail.com" target="_blank" title="Email" rel="external nofollow noopener noreferrer"><i class="fas fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/3546706926897241" target="_blank" title="Bilibili" rel="external nofollow noopener noreferrer"><i class="fab fa-bilibili" style="color: #00A1D6;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/57-51-46-50" target="_blank" title="Zhihu" rel="external nofollow noopener noreferrer"><i class="fab fa-zhihu" style="color: #0084FF;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">保持热爱，奔赴山海。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/%E4%BA%8C%E5%88%86%E4%B8%8E%E5%B7%AE%E5%88%86.html" title="一刀两半，一查到底：二分与差分的艺术"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一刀两半，一查到底：二分与差分的艺术"></a><div class="content"><a class="title" href="/posts/%E4%BA%8C%E5%88%86%E4%B8%8E%E5%B7%AE%E5%88%86.html" title="一刀两半，一查到底：二分与差分的艺术">一刀两半，一查到底：二分与差分的艺术</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C.html" title="当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密"></a><div class="content"><a class="title" href="/posts/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C.html" title="当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密">当你拥有了&quot;魔法眼镜&quot;：二维前缀和的秘密</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3.html" title="从O(n)到O(1)的魔法：前缀和算法揭秘"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从O(n)到O(1)的魔法：前缀和算法揭秘"></a><div class="content"><a class="title" href="/posts/%E5%89%8D%E7%BC%80%E5%92%8C%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3.html" title="从O(n)到O(1)的魔法：前缀和算法揭秘">从O(n)到O(1)的魔法：前缀和算法揭秘</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3.html" title="差分：两行代码把 O(n) 变成 O(1)"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="差分：两行代码把 O(n) 变成 O(1)"></a><div class="content"><a class="title" href="/posts/%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3.html" title="差分：两行代码把 O(n) 变成 O(1)">差分：两行代码把 O(n) 变成 O(1)</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" title="双指针算法：从O(n²)到O(n)的优雅蜕变"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/cover1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="双指针算法：从O(n²)到O(n)的优雅蜕变"></a><div class="content"><a class="title" href="/posts/%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" title="双指针算法：从O(n²)到O(n)的优雅蜕变">双指针算法：从O(n²)到O(n)的优雅蜕变</a><time datetime="2026-03-31T16:00:00.000Z" title="发表于 2026-04-01 00:00:00">2026-04-01</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div>
+          <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">10</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">算法基础</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/04/"><span class="card-archive-list-date">四月 2026</span><span class="card-archive-list-count">10</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">10</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishdate="2025-12-31T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">10.6k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-06-14T09:21:43.929Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2026 By RAINSOLO</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://github.com/RAINSOLO-MAX" target="_blank">GitHub</a> | Powered by Hexo & Butterfly</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.31/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.1/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadWaline () {
-  function initWaline () {
-    const waline = Waline.init(Object.assign({
-      el: '#waline-wrap',
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">算法基础</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              四月 2026
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">10</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishdate="2025-12-31T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">10.9k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastpushdate="2026-08-20T05:05:10.998Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By Rain</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.7.0</a></span></div><div class="footer_custom_text"><a href="https://github.com/RAINSOLO-MAX" target="_blank">GitHub</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><script src="/js/tw_cn.js?v=5.7.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.14/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
       serverURL: 'https://rainsolo-maxs-projects.vercel.app',
       pageview: false,
       dark: 'html[data-theme="dark"]',
-      path: window.location.pathname,
-      comment: false,
-    }, null))
-  }
-
-  const walineCSSLoad = document.getElementById('waline-css')
-
-  if (typeof Waline === 'object') {
-    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client@2.14.7/dist/waline.min.css','waline-css').then(initWaline)
-  }
-  else {
-    getCSS('https://cdn.jsdelivr.net/npm/@waline/client@2.14.7/dist/waline.min.css','waline-css').then(() => {
-      getScript('https://cdn.jsdelivr.net/npm/@waline/client@2.14.7/dist/waline.min.js').then(initWaline)
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
     })
-  }
-}
 
-if ('Waline' === 'Waline' || !false) {
-  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
-  else setTimeout(loadWaline, 0)
-} else {
-  function loadOtherComment () {
-    loadWaline()
-  }
-}</script></div><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="7452156208" fixed="true" autoplay="false" list-folded="true"></meting-js><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
-
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client@3.15.2/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
 
-  typeof disqusjs === 'object' && disqusjs.destroy()
-})
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'data-lazy-src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'waline-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = async (ele) => {
+    try {
+      const res = await fetch('https://rainsolo-maxs-projects.vercel.app/api/comment?type=recent&count=6')
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      btf.saveToLocal.set(keyName, JSON.stringify(walineArray), 10/(60*24))
+      generateHtml(walineArray, ele)
+    } catch (err) {
+      console.error(err)
+      ele.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  run(keyName, getComment)
+})</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-show-text.min.js" data-mobile="false" data-text="AK,秒了,爆零,卡常,玄学" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([data-fancybox])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof chatBtnFn === 'function' && chatBtnFn()
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
-
-document.addEventListener('pjax:error', (e) => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      if (!item.parentNode) return
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    const responseURL = e.request && e.request.responseURL
+    if (e.request && e.request.status === 404) {
+      true
+        ? pjax.loadUrl('/404.html')
+        : responseURL && (window.location.href = responseURL)
+    } else if (responseURL) {
+      window.location.href = responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"></div><hr><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div></body></html>
